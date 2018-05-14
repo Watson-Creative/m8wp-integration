@@ -153,10 +153,12 @@ class M8wp_Integration {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new M8wp_Integration_Admin( $this->get_m8wp_integration(), $this->get_version() );
-
+		
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		
 
+		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'create_metabox' );
 	}
 
 	/**

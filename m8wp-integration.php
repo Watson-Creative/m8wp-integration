@@ -1,8 +1,4 @@
 <?php
-// For composer dependencies
-require "vendor/autoload.php";
-
-
 /**
  * The plugin bootstrap file
  *
@@ -16,12 +12,12 @@ require "vendor/autoload.php";
  * @package           M8wp_Integration
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Plugin Boilerplate
- * Plugin URI:        http://example.com/m8wp-integration-uri/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Plugin Name:       M8WP Integration
+ * Plugin URI:        https://github.com/Watson-Creative/m8wp-integration
+ * Description:       Integrate existing SkiData data with WP Admin and Front-end
  * Version:           1.0.0
- * Author:            Your Name or Your Company
- * Author URI:        http://example.com/
+ * Author:            Alex Tryon - Watson Creative
+ * Author URI:        https://watsoncreative.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       m8wp-integration

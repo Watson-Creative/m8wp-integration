@@ -100,4 +100,34 @@ class M8wp_Integration_Admin {
 
 	}
 
+	/**
+	 *Create Metabox for Pages/Posts.
+	 *
+	 * @since    1.0.1
+	 */
+	public function create_metabox() {
+		$screens = ['post', 'page'];
+	    foreach ($screens as $screen) {
+	    	global $wp_meta_boxes;
+	        add_meta_box(
+	            'm8wp_integration',           // Unique ID
+	            'Motiv8 Rewards',  // Box title
+	            array($this, 'm8wp_metabox_html'),  // Content callback, must be of type callable
+	            $screen,                   // Post type
+	            'side',
+	            'low'
+	        );
+	    }
+	}
+	public function m8wp_metabox_html($post){
+	    ?>
+	    <label for="m8wp_trigger">Select Rewards Trigger</label>
+	    <select name="m8wp_trigger" id="m8wp_trigger" class="postbox">
+	        <option value="">...</option>
+	        <option value="something">Timer</option>
+	        <option value="else">Screen Position</option>
+	    </select>
+	    <?php
+	}
+
 }
