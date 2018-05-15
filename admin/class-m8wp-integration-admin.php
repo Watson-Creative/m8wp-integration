@@ -157,4 +157,46 @@ class M8wp_Integration_Admin {
 		}
 
 
+
+	public function register_m8wp_admin_settings() {
+	/**
+	 *Create Admin Options Panel
+	 *
+	 * @since    1.0.1
+	 */
+		register_setting( 'm8wp_admin_settings', 'm8wp_admin_options' );
+		add_menu_page('Motiv8 Admin Settings', 'Motiv8 Admin Settings', 'administrator', __FILE__, 'm8wp_admin_settings_page' /*,plugins_url('img/WC_Brand-20.png', __FILE__ ) */);
+	}
+	public function m8wp_admin_settings_page(){
+		?>
+			<div class="wrap">
+				<!-- <img id="watson-branding" src="<?php //echo plugins_url('img/WC_Brand_Signature.png', __FILE__ ); ?>" style="max-width:400px;"> -->
+				<h1>M8WP</h1>
+				<form method="post" action="options.php"> 
+					<?php 
+					settings_fields( 'm8wp_admin_settings' );
+					do_settings_sections( 'm8wp_admin_settings' ); 
+					$values = get_option('m8wp_admin_options'); ?>
+
+					<table class="form-table ga-inject-code-options">
+						<?php foreach ($values as $key => $value) {
+							?>
+							<tr valign="top">
+						        <th scope="row"><?php echo $key; ?></th>
+						        <td><input type="text" name="$key" value="<?php echo esc_attr( $value ); ?>" /></td>
+					        </tr>
+							<?php
+						}
+				        ?>
+				  
+				    </table>
+
+			    <?php
+					submit_button('Save Changes');
+					?>
+				</form>
+			</div><?php
+	}
+
+
 }
