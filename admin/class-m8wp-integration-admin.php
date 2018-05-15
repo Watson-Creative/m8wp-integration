@@ -73,6 +73,8 @@ class M8wp_Integration_Admin {
 		 * class.
 		 */
 
+		wp_enqueue_style( $this->m8wp_integration, 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css', array(), $this->version, 'all' );
+		// add select2 style
 		wp_enqueue_style( $this->m8wp_integration, plugin_dir_url( __FILE__ ) . 'css/m8wp-integration-admin.css', array(), $this->version, 'all' );
 
 	}
@@ -96,7 +98,12 @@ class M8wp_Integration_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->m8wp_integration, plugin_dir_url( __FILE__ ) . 'js/m8wp-integration-admin.js', array( 'jquery' ), $this->version, false );
+		// add select2 script
+		wp_enqueue_script( 'select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ), $this->version, false );
+
+		wp_enqueue_script( $this->m8wp_integration, plugin_dir_url( __FILE__ ) . 'js/m8wp-integration-admin.js', array( 'jquery', 'select2'), $this->version, false );
+
+		
 
 	}
 
@@ -122,11 +129,10 @@ class M8wp_Integration_Admin {
 	public function m8wp_metabox_html($post){
 	    ?>
 	    <label for="m8wp_trigger">Select Rewards Trigger</label>
-	    <select name="m8wp_trigger" id="m8wp_trigger" class="postbox">
-	        <option value="">...</option>
-	        <option value="something">Timer</option>
-	        <option value="else">Screen Position</option>
-	    </select>
+	    <select name="m8wp_trigger" id="m8wp_trigger" class="postbox js-example-basic-single">
+		  <option value="AL">Alabama</option>
+		  <option value="WY">Wyoming</option>
+		</select>
 	    <?php
 	}
 
