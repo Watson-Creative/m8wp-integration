@@ -121,17 +121,15 @@ class M8wp_Integration_Admin {
 	            'Motiv8 Rewards',  // Box title
 	            array($this, 'm8wp_metabox_html'),  // Content callback, must be of type callable
 	            $screen,                   // Post type
-	            'side',
-	            'low'
+	            'normal',
+	            'high'
 	        );
 	    }
 	}
 	public function m8wp_metabox_html($post){
 	    ?>
 	    <label for="m8wp_trigger">Select Rewards Trigger</label>
-	    <select name="m8wp_trigger" id="m8wp_trigger" class="postbox js-example-basic-single">
-		  <option value="AL">Alabama</option>
-		  <option value="WY">Wyoming</option>
+	    <select name="m8wp_trigger" id="m8wp_trigger" class="postbox js-example-data-ajax">
 		</select>
 	    <?php
 	}
