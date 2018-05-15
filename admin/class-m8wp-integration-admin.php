@@ -128,9 +128,17 @@ class M8wp_Integration_Admin {
 	}
 	public function m8wp_metabox_html($post){
 	    ?>
-	    <label for="m8wp_trigger">Select Rewards Trigger</label>
-	    <select name="m8wp_trigger" id="m8wp_trigger" class="postbox js-example-data-ajax">
+	    <label for="m8wp_reward">Select Reward</label>
+	    <select name="m8wp_reward" id="m8wp_reward" class="postbox js-example-data-ajax">
 		</select>
+		<br />
+		<label for="m8wp_trigger">Select Reward Trigger</label>
+	    <select name="m8wp_trigger" id="m8wp_trigger" class="postbox">
+	    	<option>Timer</option>
+	    	<option>Button</option>
+	    	<option>Anchor</option>
+		</select>
+		<!-- echo shortcode on trigger selection for user to past into content block? -->
 	    <?php
 	}
 

@@ -31,6 +31,12 @@
 
 	 $(document).ready(function() {
 	    $(".js-example-data-ajax").select2({
+	      //element configuration
+	      width: '100%',
+
+
+
+	      //ajax call
 		  ajax: {
 		    url: "https://api.github.com/search/repositories",
 		    dataType: 'json',
@@ -78,11 +84,12 @@
 		    markup += "<div class='select2-result-repository__description'>" + repo.description + "</div>";
 		  }
 
-		  markup += "<div class='select2-result-repository__statistics'>" +
-		    "<div class='select2-result-repository__forks'><i class='fa fa-flash'></i> " + repo.forks_count + " Forks</div>" +
-		    "<div class='select2-result-repository__stargazers'><i class='fa fa-star'></i> " + repo.stargazers_count + " Stars</div>" +
-		    "<div class='select2-result-repository__watchers'><i class='fa fa-eye'></i> " + repo.watchers_count + " Watchers</div>" +
-		  "</div>" +
+		  markup += 
+		  // "<div class='select2-result-repository__statistics'>" +
+		  //   "<div class='select2-result-repository__forks'><i class='fa fa-flash'></i> " + repo.forks_count + " Forks</div>" +
+		  //   "<div class='select2-result-repository__stargazers'><i class='fa fa-star'></i> " + repo.stargazers_count + " Stars</div>" +
+		  //   "<div class='select2-result-repository__watchers'><i class='fa fa-eye'></i> " + repo.watchers_count + " Watchers</div>" +
+		  // "</div>" +
 		  "</div></div>";
 
 		  return markup;

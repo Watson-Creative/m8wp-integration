@@ -15,7 +15,7 @@
  * Plugin Name:       M8WP Integration
  * Plugin URI:        https://github.com/Watson-Creative/m8wp-integration
  * Description:       Integrate existing SkiData data with WP Admin and Front-end
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Alex Tryon - Watson Creative
  * Author URI:        https://watsoncreative.com
  * License:           GPL-2.0+
@@ -34,7 +34,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'M8WP_INTEGRATION_VERSION', '1.0.0' );
+define( 'M8WP_INTEGRATION_VERSION', '1.0.1' );
 
 /**
  * The code that runs during plugin activation.
