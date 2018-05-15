@@ -113,33 +113,48 @@ class M8wp_Integration_Admin {
 	 * @since    1.0.1
 	 */
 	public function create_metabox() {
+		//replace $screens with recalled setting for post types to use.
 		$screens = ['post', 'page'];
 	    foreach ($screens as $screen) {
 	    	global $wp_meta_boxes;
 	        add_meta_box(
-	            'm8wp_integration',           // Unique ID
+	            'm8wp_integration', // Unique ID
 	            'Motiv8 Rewards',  // Box title
-	            array($this, 'm8wp_metabox_html'),  // Content callback, must be of type callable
-	            $screen,                   // Post type
+	            array($this, 'm8wp_metabox_html'), // Content callback, must be of type callable
+	            $screen,  // Post type
 	            'normal',
 	            'high'
 	        );
 	    }
 	}
 	public function m8wp_metabox_html($post){
+		//retrieve current value for trigger
+	    $trigger_value = get_post_meta($post->ID, '_m8wp_trigger_value', true);
 	    ?>
-	    <label for="m8wp_reward">Select Reward</label>
+<!-- 	    <label for="m8wp_reward">Select Reward</label>
 	    <select name="m8wp_reward" id="m8wp_reward" class="postbox js-example-data-ajax">
 		</select>
-		<br />
+		<br /> -->
 		<label for="m8wp_trigger">Select Reward Trigger</label>
 	    <select name="m8wp_trigger" id="m8wp_trigger" class="postbox">
-	    	<option>Timer</option>
-	    	<option>Button</option>
-	    	<option>Anchor</option>
+	    	<!-- need to make sure to add selected($value, VAL) to ajax sourced options. include necessary identifiers, encoded appropriately -->
+	    	<option value='Timer' <?php selected($trigger_value, 'Timer'); ?> >Timer</option>
+	    	<option value='Button' <?php selected($trigger_value, 'Button'); ?> >Button</option>
+	    	<option value='Anchor' <?php selected($trigger_value, 'Anchor'); ?> >Anchor</option>
 		</select>
 		<!-- echo shortcode on trigger selection for user to past into content block? -->
 	    <?php
 	}
+	public function m8wp_metabox_save_postdata($post_id)
+		{
+		    if (array_key_exists('m8wp_trigger', $_POST)) {
+		        update_post_meta(
+		            $post_id,
+		            '_m8wp_trigger_value',
+		            $_POST['m8wp_trigger']
+		        );
+		    }
+		}
+
 
 }

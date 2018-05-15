@@ -157,8 +157,10 @@ class M8wp_Integration {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		
-
+		// hook metabox creation
 		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'create_metabox' );
+		// hook metabox save
+		$this->loader->add_action('save_post', $plugin_admin, 'm8wp_metabox_save_postdata');
 	}
 
 	/**
