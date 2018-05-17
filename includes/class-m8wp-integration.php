@@ -159,7 +159,7 @@ class M8wp_Integration {
 		
 		// hook admin init
 		$this->loader->add_action('admin_init', $plugin_admin, 'register_m8wp_admin_settings');
-
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'create_m8wp_admin_settings_page' );
 		// hook metabox creation
 		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'create_metabox' );
 		// hook metabox save
