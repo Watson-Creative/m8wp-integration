@@ -12,8 +12,6 @@
  * @subpackage M8wp_Integration/admin/partials
  */
 ?>
-
-
 	<div class="wrap">
 		<!-- <img id="watson-branding" src="<?php //echo plugins_url('img/WC_Brand_Signature.png', __FILE__ ); ?>" style="max-width:400px;"> -->
 		<h1>M8WP</h1>
@@ -24,14 +22,15 @@
 			$values = get_option('m8wp_admin_options'); ?>
 
 			<table class="form-table ga-inject-code-options">
-				<?php foreach ($values as $key => $value) {
+				<?php // foreach ($values as $key => $value) {
+					print_r($values);
 					?>
-					<tr valign="top">
-				        <th scope="row"><?php echo $key; ?></th>
-				        <td><input type="text" name="$key" value="<?php echo esc_attr( $value ); ?>" /></td>
-			        </tr>
+				<!-- 	<tr valign="top">
+				        <th scope="row"><?php //echo $key; ?></th>
+				        <td><input type="text" name="<?php $key ?>" value="<?php //echo esc_attr( $value ); ?>" /></td>
+			        </tr> -->
 					<?php
-				}
+				// }
 		        ?>
 		  
 		    </table>

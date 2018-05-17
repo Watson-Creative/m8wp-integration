@@ -175,24 +175,25 @@ class M8wp_Integration_Admin {
 		);
 	}
 
-	
+
 	public function m8wp_admin_settings_page(){
 		?>
 		<div class="wrap">
 		<!-- <img id="watson-branding" src="<?php //echo plugins_url('img/WC_Brand_Signature.png', __FILE__ ); ?>" style="max-width:400px;"> -->
 		<h1>M8WP</h1>
 		<form method="post" action="options.php"> 
-			<?php 
+			<?php
 			settings_fields( 'm8wp_admin_settings' );
 			do_settings_sections( 'm8wp_admin_settings' ); 
 			$values = get_option('m8wp_admin_options'); ?>
 
 			<table class="form-table ga-inject-code-options">
-				<?php foreach ($values as $key => $value) {
+				<?php
+				 foreach ($values as $key => $value) {
 					?>
 					<tr valign="top">
 				        <th scope="row"><?php echo $key; ?></th>
-				        <td><input type="text" name="$key" value="<?php echo esc_attr( $value ); ?>" /></td>
+				        <td><input type="text" name="<?php echo $key ?>" value="<?php echo esc_attr( $value ); ?>" /></td>
 			        </tr>
 					<?php
 				}

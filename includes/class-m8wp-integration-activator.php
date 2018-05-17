@@ -36,10 +36,10 @@ class M8wp_Integration_Activator {
 			'm8wp_password' => '',
 			'm8wp_baseURL' => '',
 		);
-		
+
 		// init option on activation using empty array
 		if ( get_option( 'm8wp_admin_options' ) == false ) { 
-			add_option("m8wp_admin_options", $options); 
+			update_option('m8wp_admin_options', $options); 
 		}
 	}
 
