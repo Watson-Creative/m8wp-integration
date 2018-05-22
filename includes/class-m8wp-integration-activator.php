@@ -32,9 +32,9 @@ class M8wp_Integration_Activator {
 	public static function activate() {
 		// empty options array
 		$options = array(
-			'm8wp_username' => '',
-			'm8wp_password' => '',
-			'm8wp_baseURL' => '',
+			'm8wp_username' => 'abc',
+			'm8wp_password' => 'def',
+			'm8wp_baseURL' => 'hij',
 		);
 
 		// init option on activation using empty array
